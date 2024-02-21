@@ -1,19 +1,19 @@
 import 'package:dompetku_apps/LoanPage/loan_page.dart';
-import 'package:dompetku_apps/SettingPage/setting_page.dart';
 import 'package:dompetku_apps/TransactionPage/home_page.dart';
 import 'package:dompetku_apps/WalletPage/wallet_page.dart';
+import 'package:dompetku_apps/ReportPage/report_page.dart';
 import 'package:flutter/material.dart';
 
-class ReportPage extends StatefulWidget {
-  const ReportPage({super.key});
-  static const String routeName = '/report';
+class SettingPage extends StatefulWidget {
+  const SettingPage({super.key});
+  static const String routeName = "/setting";
 
   @override
-  State<ReportPage> createState() => _ReportPageState();
+  State<SettingPage> createState() => _SettingPageState();
 }
 
-class _ReportPageState extends State<ReportPage> {
-  int _selectedIndex = 2;
+class _SettingPageState extends State<SettingPage> {
+  int _selectedIndex = 4;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -26,13 +26,13 @@ class _ReportPageState extends State<ReportPage> {
         if (ModalRoute.of(context)?.settings.name != WalletPage.routeName) {
           Navigator.pushNamed(context, WalletPage.routeName);
         }
+      } else if (_selectedIndex == 2) {
+        if (ModalRoute.of(context)?.settings.name != ReportPage.routeName) {
+          Navigator.pushNamed(context, ReportPage.routeName);
+        }
       } else if (_selectedIndex == 3) {
         if (ModalRoute.of(context)?.settings.name != LoanPage.routeName) {
           Navigator.pushNamed(context, LoanPage.routeName);
-        }
-      } else if (_selectedIndex == 4) {
-        if (ModalRoute.of(context)?.settings.name != SettingPage.routeName) {
-          Navigator.pushNamed(context, SettingPage.routeName);
         }
       }
     });
@@ -47,7 +47,7 @@ class _ReportPageState extends State<ReportPage> {
         backgroundColor: const Color(0xFF2396F3),
         centerTitle: true,
         title: Text(
-          "Reports",
+          "Settings",
           style: TextStyle(
               fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
         ),

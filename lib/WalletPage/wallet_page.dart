@@ -1,4 +1,7 @@
+import 'package:dompetku_apps/LoanPage/loan_page.dart';
+import 'package:dompetku_apps/SettingPage/setting_page.dart';
 import 'package:dompetku_apps/TransactionPage/home_page.dart';
+import 'package:dompetku_apps/ReportPage/report_page.dart';
 import 'package:flutter/material.dart';
 
 class WalletPage extends StatefulWidget {
@@ -16,12 +19,21 @@ class _WalletPageState extends State<WalletPage> {
     setState(() {
       _selectedIndex = index;
       if (_selectedIndex == 0) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ),
-        );
+        if (ModalRoute.of(context)?.settings.name != HomePage.routeName) {
+          Navigator.pushNamed(context, HomePage.routeName);
+        }
+      } else if (_selectedIndex == 2) {
+        if (ModalRoute.of(context)?.settings.name != ReportPage.routeName) {
+          Navigator.pushNamed(context, ReportPage.routeName);
+        }
+      } else if (_selectedIndex == 3) {
+        if (ModalRoute.of(context)?.settings.name != LoanPage.routeName) {
+          Navigator.pushNamed(context, LoanPage.routeName);
+        }
+      } else if (_selectedIndex == 4) {
+        if (ModalRoute.of(context)?.settings.name != SettingPage.routeName) {
+          Navigator.pushNamed(context, SettingPage.routeName);
+        }
       }
     });
   }
@@ -44,7 +56,7 @@ class _WalletPageState extends State<WalletPage> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.menu_book_rounded),
-            label: "Transactions",
+            label: "Transaction",
             backgroundColor: Color(0xFF2396F3),
           ),
           BottomNavigationBarItem(
@@ -64,14 +76,22 @@ class _WalletPageState extends State<WalletPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: "Settings",
+            label: "Setting",
             backgroundColor: Color(0xFF2396F3),
           ),
         ],
         currentIndex: _selectedIndex,
+        showUnselectedLabels: true,
         onTap: _onItemTapped,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white54,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: const Color(0xFF2396F3),
+        shape: const CircleBorder(side: BorderSide.none),
+        child: const Icon(Icons.add),
+        foregroundColor: Colors.white,
       ),
     );
   }

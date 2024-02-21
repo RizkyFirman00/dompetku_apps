@@ -1,3 +1,6 @@
+import 'package:dompetku_apps/LoanPage/loan_page.dart';
+import 'package:dompetku_apps/ReportPage/report_page.dart';
+import 'package:dompetku_apps/SettingPage/setting_page.dart';
 import 'package:dompetku_apps/TransactionPage/add_transactions_page.dart';
 import 'package:dompetku_apps/TransactionPage/home_page.dart';
 import 'package:dompetku_apps/WalletPage/wallet_page.dart';
@@ -19,6 +22,9 @@ class MainApp extends StatelessWidget {
         HomePage.routeName: (context) => HomePage(),
         WalletPage.routeName: (context) => WalletPage(),
         AddTransactionsPage.routeName: (context) => AddTransactionsPage(),
+        ReportPage.routeName: (context) => ReportPage(),
+        LoanPage.routeName: (context) => LoanPage(),
+        SettingPage.routeName: (context) => SettingPage()
       },
     );
   }

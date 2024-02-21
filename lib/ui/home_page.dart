@@ -1,7 +1,10 @@
+import 'package:dompetku_apps/ui/add_transactions_page.dart';
+import 'package:dompetku_apps/ui/wallet_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+  static const String routeName = '/transactions';
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -14,13 +17,19 @@ class _HomePageState extends State<HomePage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if (_selectedIndex == 1) {
+        if (ModalRoute.of(context)?.settings.name != WalletPage.routeName) {
+          Navigator.pushNamed(context, WalletPage.routeName);
+        }
+      }
     });
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: const Color(0xFFF9F9F9),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF2396F3),
         title: const SizedBox(
           width: double.infinity,
@@ -65,17 +74,18 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                   height: 50,
-                  decoration: BoxDecoration(color: Color(0xFF2396F3)),
+                  decoration: const BoxDecoration(color: Color(0xFF2396F3)),
                 ),
                 Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15)),
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                  child: Row(
+                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
+                    children: [
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -178,12 +188,19 @@ class _HomePageState extends State<HomePage> {
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white54,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Color(0xFF2396F3),
-        shape: CircleBorder(side: BorderSide.none),
-        child: Icon(Icons.add),
+        onPressed: () {
+          if (ModalRoute.of(context)?.settings.name !=
+              AddTransactionsPage.routeName) {
+            Navigator.pushNamed(context, AddTransactionsPage.routeName);
+          }
+        },
+        backgroundColor: const Color(0xFF2396F3),
+        shape: const CircleBorder(side: BorderSide.none),
+        child: const Icon(Icons.add),
         foregroundColor: Colors.white,
       ),
     );

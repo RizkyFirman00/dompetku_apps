@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 class AddTransactionsPage extends StatefulWidget {
   AddTransactionsPage({super.key});
+  static const String routeName = '/addTransactions';
 
   @override
   _AddTransactionsPageState createState() => _AddTransactionsPageState();
@@ -36,14 +37,19 @@ class _AddTransactionsPageState extends State<AddTransactionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF9F9F9),
       appBar: AppBar(
         shadowColor: Colors.black,
         backgroundColor: const Color(0xFF2396F3),
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.white,
-          size: 18,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+            size: 18,
+          ),
         ),
         centerTitle: true,
         title: Text(

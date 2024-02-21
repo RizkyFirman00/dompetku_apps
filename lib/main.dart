@@ -1,5 +1,6 @@
 import 'package:dompetku_apps/ui/add_transactions_page.dart';
 import 'package:dompetku_apps/ui/home_page.dart';
+import 'package:dompetku_apps/ui/wallet_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,8 +13,13 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AddTransactionsPage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        HomePage.routeName: (context) => HomePage(),
+        WalletPage.routeName: (context) => WalletPage(),
+        AddTransactionsPage.routeName: (context) => AddTransactionsPage(),
+      },
     );
   }
 }

@@ -10,13 +10,72 @@ void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    WalletPage(),
+    ReportPage(),
+    LoanPage(),
+    SettingPage(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: Scaffold(
+        body: Container(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.menu_book_rounded),
+              label: "Transaction",
+              backgroundColor: Color(0xFF2396F3),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.wallet),
+              label: "Wallet",
+              backgroundColor: Color(0xFF2396F3),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.graphic_eq),
+              label: "Report",
+              backgroundColor: Color(0xFF2396F3),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.sticky_note_2),
+              label: "Loan",
+              backgroundColor: Color(0xFF2396F3),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: "Setting",
+              backgroundColor: Color(0xFF2396F3),
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          showUnselectedLabels: true,
+          onTap: _onItemTapped,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white54,
+        ),
+      ),
       debugShowCheckedModeBanner: false,
       routes: {
         HomePage.routeName: (context) => HomePage(),

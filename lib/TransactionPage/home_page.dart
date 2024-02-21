@@ -82,130 +82,94 @@ class _HomePageState extends State<HomePage> {
           Padding(padding: EdgeInsets.only(right: 8)),
         ],
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Container(
-                  height: 50,
-                  decoration: const BoxDecoration(color: Color(0xFF2396F3)),
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              Container(
+                height: 50,
+                decoration: const BoxDecoration(color: Color(0xFF2396F3)),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15)),
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Income",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "0",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Color(0xFF2396F3),
+                          ),
+                        )
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Expenses",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "0",
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        )
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Balance",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          "0",
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15)),
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Income",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "0",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Color(0xFF2396F3),
-                            ),
-                          )
-                        ],
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Expenses",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "0",
-                            style: TextStyle(
-                              fontSize: 14,
-                            ),
-                          )
-                        ],
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Balance",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "0",
-                            style: TextStyle(
-                              fontSize: 14,
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.menu_book_rounded),
-            label: "Transaction",
-            backgroundColor: Color(0xFF2396F3),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.wallet),
-            label: "Wallet",
-            backgroundColor: Color(0xFF2396F3),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.graphic_eq),
-            label: "Report",
-            backgroundColor: Color(0xFF2396F3),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.sticky_note_2),
-            label: "Loan",
-            backgroundColor: Color(0xFF2396F3),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Setting",
-            backgroundColor: Color(0xFF2396F3),
+              ),
+            ],
           ),
         ],
-        currentIndex: _selectedIndex,
-        showUnselectedLabels: true,
-        onTap: _onItemTapped,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white54,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

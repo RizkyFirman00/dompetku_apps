@@ -52,40 +52,6 @@ class _WalletPageState extends State<WalletPage> {
               fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.menu_book_rounded),
-            label: "Transaction",
-            backgroundColor: Color(0xFF2396F3),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.wallet),
-            label: "Wallet",
-            backgroundColor: Color(0xFF2396F3),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.graphic_eq),
-            label: "Report",
-            backgroundColor: Color(0xFF2396F3),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.sticky_note_2),
-            label: "Loan",
-            backgroundColor: Color(0xFF2396F3),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "Setting",
-            backgroundColor: Color(0xFF2396F3),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        showUnselectedLabels: true,
-        onTap: _onItemTapped,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white54,
-      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: const Color(0xFF2396F3),

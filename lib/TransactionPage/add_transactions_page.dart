@@ -37,7 +37,7 @@ class _AddTransactionsPageState extends State<AddTransactionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: const Color(0xFFF9F9F9),
       appBar: AppBar(
         shadowColor: Colors.black,
         backgroundColor: const Color(0xFF2396F3),
@@ -45,14 +45,14 @@ class _AddTransactionsPageState extends State<AddTransactionsPage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
             size: 18,
           ),
         ),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Add Transaction",
           style: TextStyle(
               fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold),
@@ -60,14 +60,14 @@ class _AddTransactionsPageState extends State<AddTransactionsPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 15),
+          margin: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(bottom: 12, top: 15),
+                margin: const EdgeInsets.only(bottom: 12, top: 15),
                 child: TextFormField(
                   controller: dateController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Date",
                     suffixIcon: Icon(
@@ -81,7 +81,7 @@ class _AddTransactionsPageState extends State<AddTransactionsPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 12),
+                margin: const EdgeInsets.only(bottom: 12),
                 child: DropdownButtonFormField<String>(
                   value: selectedWallet,
                   items: wallets.map((String wallet) {
@@ -95,21 +95,21 @@ class _AddTransactionsPageState extends State<AddTransactionsPage> {
                       selectedWallet = value!;
                     });
                   },
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Wallet",
                   ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 12),
+                margin: const EdgeInsets.only(bottom: 12),
                 child: TextFormField(
                   controller: amountController,
                   keyboardType: TextInputType.number,
                   inputFormatters: [
                     FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                   ],
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Amount",
                     prefixText: "Rp. ",
@@ -121,27 +121,27 @@ class _AddTransactionsPageState extends State<AddTransactionsPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 12),
+                margin: const EdgeInsets.only(bottom: 12),
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Tittle",
                   ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 12),
+                margin: const EdgeInsets.only(bottom: 12),
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Category",
                   ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(bottom: 12),
+                margin: const EdgeInsets.only(bottom: 12),
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: "Description (Optional)",
                   ),
@@ -154,18 +154,18 @@ class _AddTransactionsPageState extends State<AddTransactionsPage> {
                     width: 100,
                     child: TextButton(
                       onPressed: () {},
-                      child: Text("Save"),
+                      child: const Text("Save"),
                       style: TextButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(13),
                         ),
-                        backgroundColor: Color(0xFF2396F3),
+                        backgroundColor: const Color(0xFF2396F3),
                         primary: Colors.white,
                       ),
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
@@ -209,27 +209,5 @@ class _AddTransactionsPageState extends State<AddTransactionsPage> {
       // Handle the case when parsing fails
       print('Error: $e');
     }
-  }
-
-  void _showWalletList(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Container(
-          height: 200,
-          child: ListView.builder(
-            itemCount: wallets.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(wallets[index]),
-                onTap: () {
-                  Navigator.pop(context); // Close the bottom sheet
-                },
-              );
-            },
-          ),
-        );
-      },
-    );
   }
 }

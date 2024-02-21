@@ -3,7 +3,10 @@ import 'package:dompetku_apps/ReportPage/report_page.dart';
 import 'package:dompetku_apps/SettingPage/setting_page.dart';
 import 'package:dompetku_apps/TransactionPage/add_transactions_page.dart';
 import 'package:dompetku_apps/TransactionPage/home_page.dart';
+import 'package:dompetku_apps/WalletPage/add_wallet_page.dart';
+import 'package:dompetku_apps/WalletPage/edit_wallet_page.dart';
 import 'package:dompetku_apps/WalletPage/wallet_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -37,6 +40,20 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      builder: (context, child) {
+        return CupertinoTheme(
+          data: const CupertinoThemeData(
+            textTheme: CupertinoTextThemeData(
+              navTitleTextStyle: TextStyle(
+                  fontFamily: '.SF UI Display',
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
+          ),
+          child: child!,
+        );
+      },
       home: Scaffold(
         body: Container(
           child: _widgetOptions.elementAt(_selectedIndex),
@@ -78,12 +95,14 @@ class _MainAppState extends State<MainApp> {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        HomePage.routeName: (context) => HomePage(),
-        WalletPage.routeName: (context) => WalletPage(),
+        HomePage.routeName: (context) => const HomePage(),
         AddTransactionsPage.routeName: (context) => AddTransactionsPage(),
-        ReportPage.routeName: (context) => ReportPage(),
-        LoanPage.routeName: (context) => LoanPage(),
-        SettingPage.routeName: (context) => SettingPage()
+        WalletPage.routeName: (context) => const WalletPage(),
+        AddWalletPage.routeName: (context) => const AddWalletPage(),
+        EditWalletPage.routeName: (context) => const EditWalletPage(),
+        ReportPage.routeName: (context) => const ReportPage(),
+        LoanPage.routeName: (context) => const LoanPage(),
+        SettingPage.routeName: (context) => const SettingPage()
       },
     );
   }

@@ -1,4 +1,4 @@
-import 'package:dompetku_apps/ui/home_page.dart';
+import 'package:dompetku_apps/TransactionPage/home_page.dart';
 import 'package:flutter/material.dart';
 
 class WalletPage extends StatefulWidget {

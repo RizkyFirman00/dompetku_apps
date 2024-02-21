@@ -1,5 +1,5 @@
-import 'package:dompetku_apps/ui/add_transactions_page.dart';
-import 'package:dompetku_apps/ui/wallet_page.dart';
+import 'package:dompetku_apps/TransactionsPage/add_transactions_page.dart';
+import 'package:dompetku_apps/WalletPage/wallet_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
